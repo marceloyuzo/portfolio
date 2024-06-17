@@ -24,6 +24,7 @@ import { Swiper as SwiperType } from 'swiper';
 import { Tooltip } from "react-tooltip"
 import { CardEducation } from "../../components/CardEducation"
 import { Header } from "../../components/Header"
+import { useLocation } from "react-router-dom"
 
 
 interface projectsProps {
@@ -96,11 +97,25 @@ export function Landing() {
   const [visible, setVisible] = useState(false)
   const emailInput = "marceloyuzo0@hotmail.com"
   const swiperRef = useRef<SwiperCore | null>(null);
+  const location = useLocation();
 
   useEffect(() => {
     const timer = setTimeout(() => setVisible(true), 500);
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    const hash = location.hash;
+    if (hash) {
+      const element = document.querySelector(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+    if (!hash) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [location]);
 
   const handleChange = (swiper: SwiperType) => {
     const currentIndex = swiper.activeIndex
@@ -122,9 +137,9 @@ export function Landing() {
     <main>
       <Header />
 
-      <section className="section-1 flex justify-center items-center gap-10 max-xl:flex-col-reverse max-sm:h-auto max-sm:py-40">
+      <section className="section-1 flex justify-center items-center gap-10 max-xl:flex-col-reverse max-xl:pt-20 max-md:pt-0 max-sm:h-dvh max-sm:py-10" id="section-1">
         <div className={`w-full max-w-3xl px-8 transition-opacity transform ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'} duration-1000 ease-in`}>
-          <h1 className="text-7xl text-color_5 font-extrabold mb-5 text-shadow text-center max-sm:text-5xl">REACT DEVELOPER</h1>
+          <h1 className="text-7xl text-color_5 font-extrabold mb-5 text-shadow text-center max-sm:text-4xl">REACT DEVELOPER</h1>
 
           <p className="text-color_4 text-justify indent-4 max-sm:text-sm">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
         </div>
@@ -150,16 +165,16 @@ export function Landing() {
       </section>
 
 
-      <section className="section-2 flex flex-col justify-center items-center max-lg:h-auto max-lg:py-40">
-        <h1 className="text-4xl text-color_5 font-extrabold mb-16 text-shadow text-center max-sm:text-2xl card">TECNOLOGIAS</h1>
-        <div className="grid grid-cols-3 gap-20 max-lg:grid-cols-2 max-sm:grid-cols-1 max-lg:gap-14">
-          <div className="card animation_card">
+      <section className="section-2 flex flex-col justify-center items-center max-md:h-auto max-lg:py-40" id="tecnologias">
+        <h1 className="text-4xl text-color_5 font-extrabold mb-16 text-shadow text-center max-md:text-2xl project_animation max-mobile-lg:mb-10">TECNOLOGIAS</h1>
+        <div className="grid grid-cols-3 gap-20 max-md:grid-cols-2 max-mobile-lg:grid-cols-1 max-mobile-lg:gap-10 max-lg:gap-14 ">
+          <div className="project_animation">
             <Cardtool name="TailwindCSS" logo={tailwindLogo} bg_color="bg-color_6" border_color="border-color_6" />
           </div>
-          <div className="card animation_card">
+          <div className="project_animation">
             <Cardtool name="ReactJS" logo={reactLogo} bg_color="bg-color_5" border_color="border-color_5" />
           </div>
-          <div className="card animation_card">
+          <div className="project_animation">
             <Cardtool name="Typescript" logo={typescriptLogo} bg_color="bg-color_6" border_color="border-color_6" />
           </div>
         </div>
@@ -167,25 +182,25 @@ export function Landing() {
 
 
 
-      <section className="section-3 flex flex-col justify-center items-center max-lg:h-auto max-lg:py-40 max-lg:px-10">
+      <section className="section-3 flex flex-col justify-center items-center max-lg:h-auto max-lg:py-40 max-lg:px-10" id="projetos">
         <div className="w-full max-w-5xl flex flex-col gap-2 justify-center items-center">
-          <h1 className="text-4xl text-color_5 font-extrabold mb-16 text-shadow text-center max-sm:text-2xl project_animation">PROJETOS PESSOAIS</h1>
-          <div className="w-full flex justify-between max-lg:flex-col-reverse max-lg:items-center project_animation">
-            <div className="w-full max-w-xl flex flex-col justify-between">
-              <span className="text-7xl text-color_4 font-mono mb-2">
+          <h1 className="text-4xl text-color_5 font-extrabold mb-16 text-shadow text-center max-lg:mb-10 max-md:text-2xl project_animation max-mobile-lg:mb-10">PROJETOS PESSOAIS</h1>
+          <div className="w-full flex justify-between px-10 max-lg:flex-col-reverse max-lg:items-center project_animation">
+            <div className="w-full max-w-xl flex flex-col justify-between max-lg:max-w-lg max-md:max-w-md max-sm:max-w-sm max-xs:max-w-xs max-mobile-xl:max-w-72">
+              <span className="text-7xl text-color_4 font-mono mb-2 max-lg:text-5xl max-lg:mt-2 max-sm:text-4xl">
                 {activeProject.id}
               </span>
-              <h2 className="text-4xl text-color_5 font-bold mb-8">
+              <h2 className="text-4xl text-color_5 font-bold mb-8 max-lg:text-2xl max-lg:mb-4 max-sm:text-xl">
                 {activeProject.name}
               </h2>
-              <p className="text-color_4 font-normal mb-14 max-lg:mb-4">
+              <p className="text-color_4 font-normal mb-14 max-lg:mb-4 max-lg:text-sm max-sm:text-xs">
                 {activeProject.description}
               </p>
               <div className="w-full flex gap-5 mb-4">
                 {activeProject.stacks.map((stack, index) => (
                   <div key={index} className="border-1 border-color_6 rounded-full flex justify-center items-center animation_icon">
                     <img
-                      className="w-full max-w-12 p-2.5"
+                      className="w-full max-w-12 p-2.5 max-lg:max-w-10 max-xs:max-w-9"
                       src={stack.logo}
                       alt={stack.name}
                       data-tooltip-id={stack.name}
@@ -198,15 +213,15 @@ export function Landing() {
               </div>
             </div>
             <Swiper
-              className="w-full max-w-xl"
+              className="w-full max-w-xl max-lg:max-w-lg max-md:max-w-md max-sm:max-w-sm max-xs:max-w-xs max-mobile-xl:max-w-72"
               slidesPerView={1}
               onSwiper={(swiper) => (swiperRef.current = swiper)}
               onSlideChange={handleChange}
             >
               {projects.map((project, index) => (
-                <SwiperSlide key={index} className="relative w-full max-w-xl">
+                <SwiperSlide key={index} className="relative w-full max-w-xl max-lg:max-w-lg max-md:max-w-md max-sm:max-w-sm max-xs:max-w-xs max-mobile-xl:max-w-72">
                   <img
-                    className="w-full h-full object-cover rounded-md"
+                    className="w-full h-full object-cover rounded-md "
                     src={project.thumb}
                     alt={project.name}
                   />
@@ -214,7 +229,7 @@ export function Landing() {
               ))}
             </Swiper>
           </div>
-          <div className="w-full flex justify-between max-lg:max-w-xl">
+          <div className="w-full flex justify-between px-10  max-lg:px-0 max-lg:max-w-lg max-md:max-w-md max-sm:max-w-sm max-xs:max-w-xs max-mobile-xl:max-w-72">
             <div className="flex gap-4">
               {activeProject.url && (
                 <a
@@ -226,7 +241,7 @@ export function Landing() {
                 >
                   <FiExternalLink
                     size={40}
-                    className="text-color_7"
+                    className="text-color_7 max-lg:max-w-10 max-lg:size-9 max-xs:size-7"
                   />
                   <Tooltip id={activeProject.url} />
                 </a>
@@ -238,7 +253,7 @@ export function Landing() {
                 data-tooltip-content={"Repositório github do projeto."}
                 data-tooltip-delay-show={300}
               >
-                <FaGithub size={40} className="text-color_7" />
+                <FaGithub size={40} className="text-color_7 max-lg:size-9 max-xs:size-7" />
                 <Tooltip id={activeProject.githubProject} />
               </a>
             </div>
@@ -260,7 +275,7 @@ export function Landing() {
         </div>
 
       </section>
-      <section className="section-4 flex flex-col justify-center items-center">
+      <section className="section-4 flex flex-col justify-center items-center" id="educacao">
         <h1 className="text-4xl text-color_5 font-extrabold mb-16 text-shadow text-center max-sm:text-2xl project_animation">EDUCAÇÃO</h1>
 
         <div className="flex justify-center items-center project_animation">
@@ -270,7 +285,7 @@ export function Landing() {
           </div>
         </div>
       </section>
-      <section className="section-5 w-full">
+      <section className="section-5 w-full" id="contato">
         <div className="w-full flex justify-center py-20 px-10">
           <div className="w-full flex flex-col gap-14 justify-center items-start max-w-5xl max-xl:max-w-3xl max-lg:max-w-2xl max-md:gap-10">
             <h1 className="text-4xl font-bold text-color_5 max-md:text-3xl max-sm:text-2xl">ENTRE EM CONTATO COMIGO</h1>

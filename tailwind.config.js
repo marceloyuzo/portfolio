@@ -23,7 +23,14 @@ export default {
       borderWidth: {
         '0.5': '0.5px',
         '1': '1px'
-      }
+      },
+      screens: {
+        'mobile-sm': '320px',    // Pequenos smartphones
+        'mobile-md': '375px',    // Smartphones médios
+        'mobile-lg': '425px',    // Smartphones grandes
+        'mobile-xl': '520px',
+        'xs': '580px',
+      },
     },
   },
   variants: {
