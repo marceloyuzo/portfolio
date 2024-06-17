@@ -3,8 +3,10 @@ import photo from "../../assets/WhatsApp Image 2024-06-02 at 01.50.26.jpeg"
 import reactLogo from '../../assets/react-2.svg'
 import tailwindLogo from '../../assets/tailwindcss.svg'
 import typescriptLogo from '../../assets/typescript-2.svg'
+import firebaseLogo from '../../assets/firebase-1.svg'
 import databaseProjectImage from '../../assets/DatabaseProject_image.png'
 import eCommerceImage from '../../assets/E-commerceProject_image.png'
+import criptocurrencyImage from '../../assets/CriptoCurrency_image.png'
 
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
@@ -61,6 +63,10 @@ const projects: projectsProps[] = [
       {
         name: "TailwindCSS",
         logo: tailwindLogo
+      },
+      {
+        name: "Firebase",
+        logo: firebaseLogo
       }
     ],
     url: "https://gamescomdb.vercel.app",
@@ -83,10 +89,32 @@ const projects: projectsProps[] = [
       {
         name: "TailwindCSS",
         logo: tailwindLogo
+      },
+      {
+        name: "Firebase",
+        logo: firebaseLogo
       }
     ],
-    url: null, // mudar depois
-    githubProject: "https://github.com/marceloyuzo/loja-roupas" // mudar depois
+    url: "https://loja-roupas-two.vercel.app/",
+    githubProject: "https://github.com/marceloyuzo/loja-roupas"
+  },
+  {
+    id: "03",
+    name: "Cripto Currency",
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita dolores odit eos ipsum numquam odio, ab ea pariatur ad quaerat magni nemo deserunt veniam consectetur possimus quae minus ullam. Numquam.",
+    thumb: criptocurrencyImage,
+    stacks: [
+      {
+        name: "ReactJS",
+        logo: reactLogo
+      },
+      {
+        name: "Typescript",
+        logo: typescriptLogo
+      },
+    ],
+    url: "https://cripto-currency-marceloyuzos-projects.vercel.app/",
+    githubProject: "https://github.com/marceloyuzo/CriptoCurrency"
   }
 ]
 
@@ -200,7 +228,7 @@ export function Landing() {
                 {activeProject.stacks.map((stack, index) => (
                   <div key={index} className="border-1 border-color_6 rounded-full flex justify-center items-center animation_icon">
                     <img
-                      className="w-full max-w-12 p-2.5 max-lg:max-w-10 max-xs:max-w-9"
+                      className="w-full max-w-12 min-w-12 max-h-12 p-2.5 max-lg:max-w-10 max-lg:min-w-10 max-lg:max-h-10 max-xs:max-w-9 max-xs:min-w-9 max-xs:max-h-9"
                       src={stack.logo}
                       alt={stack.name}
                       data-tooltip-id={stack.name}
