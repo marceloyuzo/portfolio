@@ -186,7 +186,7 @@ export function Landing() {
           <img
             className="relative size-80 rounded-full object-cover z-20 shadow-2xl max-sm:size-60 max-mobile-xl:size-52"
             src={photo}
-            alt=""
+            alt="Foto de perfil"
           />
           <div className="absolute top-5 -right-5 size-80 rounded-full border-2 border-color_5 z-0 shadow-2xl max-sm:size-60 max-mobile-xl:size-52"></div>
         </div>
@@ -196,13 +196,13 @@ export function Landing() {
       <section className="section-2 flex flex-col justify-center items-center max-md:h-auto max-lg:py-40" id="tecnologias">
         <h1 className="text-4xl text-color_5 font-extrabold mb-16 text-shadow text-center max-md:text-2xl project_animation max-mobile-lg:mb-10 max-mobile-sm:text-xl">TECNOLOGIAS</h1>
         <div className="grid grid-cols-3 gap-20 max-md:grid-cols-2 max-mobile-lg:grid-cols-1 max-mobile-lg:gap-10 max-lg:gap-14 ">
-          <div className="project_animation">
+          <div className="project_animation animation_card">
             <Cardtool name="TailwindCSS" logo={tailwindLogo} bg_color="bg-color_6" border_color="border-color_6" />
           </div>
-          <div className="project_animation">
+          <div className="project_animation animation_card">
             <Cardtool name="ReactJS" logo={reactLogo} bg_color="bg-color_5" border_color="border-color_5" />
           </div>
-          <div className="project_animation">
+          <div className="project_animation animation_card">
             <Cardtool name="Typescript" logo={typescriptLogo} bg_color="bg-color_6" border_color="border-color_6" />
           </div>
         </div>
