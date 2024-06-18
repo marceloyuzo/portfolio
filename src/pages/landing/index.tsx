@@ -49,7 +49,7 @@ const projects: projectsProps[] = [
   {
     id: "01",
     name: "Database De Jogos",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita dolores odit eos ipsum numquam odio, ab ea pariatur ad quaerat magni nemo deserunt veniam consectetur possimus quae minus ullam. Numquam.",
+    description: "O GAMESCOMDB é uma plataforma inspirada em sites como MyAnimeList e Letterboxd, focada em jogos. Os usuários podem criar perfis customizáveis para reunir os jogos que já jogaram, indicar seus favoritos e escrever reviews. Oferece opções de privacidade, permitindo que os perfis sejam públicos, não listados ou privados.\nO projeto utiliza a API da Steam e foi desenvolvido com ênfase no frontend, o backend não está no ar. No momento não foi projetado para utilizar em mobile.",
     thumb: databaseProjectImage,
     stacks: [
       {
@@ -75,7 +75,7 @@ const projects: projectsProps[] = [
   {
     id: "02",
     name: "E-Commerce De Roupas",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita dolores odit eos ipsum numquam odio, ab ea pariatur ad quaerat magni nemo deserunt veniam consectetur possimus quae minus ullam. Numquam.",
+    description: "O projeto loja de roupas foi desenvolvido pegando elementos de grandes lojas como Nike, Puma, Vans e Adidas, os objetivos principais foram o uso de contexto para o sistema de carrinho, aplicação de filtros em produtos, cadastrar um pedido, utilizar uma api para identificar o endereço e outros fundamentos de react.\nNão teve como objetivo desenvolver o backend, então foi utilizado o firebase para armazenar os produtos e pedidos. No momento não foi projetado para utilizar em mobile.",
     thumb: eCommerceImage,
     stacks: [
       {
@@ -101,7 +101,7 @@ const projects: projectsProps[] = [
   {
     id: "03",
     name: "Cripto Currency",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita dolores odit eos ipsum numquam odio, ab ea pariatur ad quaerat magni nemo deserunt veniam consectetur possimus quae minus ullam. Numquam.",
+    description: "O projeto cripto currency foi desenvolvido durante o curso de React, os principais pontos foram a utilização de uma api para carregar os tipos de cripto, paginação de uma lista, metodos GET para id unico em páginas detalhadas da moeda, filtragem por nome. Foi um dos primeiros projetos desenvolvidos no curso.",
     thumb: criptocurrencyImage,
     stacks: [
       {
@@ -161,6 +161,12 @@ export function Landing() {
     });
   }
 
+  const descriptionParagraphs = activeProject.description.split('\n').map((paragraph, index) => (
+    <div key={index} className="text-color_4 text-justify text-sm font-normal indent-4 max-sm:text-xs">
+      {paragraph}
+    </div>
+  ));
+
   return (
     <main>
       <Header />
@@ -210,10 +216,10 @@ export function Landing() {
 
 
 
-      <section className="section-3 flex flex-col justify-center items-center max-lg:h-auto max-lg:py-40 max-lg:px-10" id="projetos">
-        <div className="w-full max-w-5xl flex flex-col gap-2 justify-center items-center">
+      <section className="section-3 flex flex-col justify-center items-center px-10 max-lg:h-auto max-lg:py-40" id="projetos">
+        <div className="w-full max-w-6xl flex flex-col gap-2 justify-center items-center">
           <h1 className="text-4xl text-color_5 font-extrabold mb-16 text-shadow text-center max-lg:mb-10 max-md:text-2xl project_animation max-mobile-lg:mb-10 max-mobile-sm:text-xl">PROJETOS PESSOAIS</h1>
-          <div className="w-full flex justify-between max-lg:flex-col-reverse max-lg:items-center project_animation">
+          <div className="w-full flex justify-between gap-10 max-lg:gap-0 max-lg:flex-col-reverse max-lg:items-center project_animation">
             <div className="w-full max-w-xl flex flex-col justify-between max-lg:max-w-lg max-sm:max-w-md max-mobile-xl:max-w-sm">
               <span className="text-7xl text-color_4 font-mono mb-2 max-lg:text-5xl max-lg:mt-2 max-sm:text-4xl">
                 {activeProject.id}
@@ -221,10 +227,10 @@ export function Landing() {
               <h2 className="text-4xl text-color_5 font-bold mb-8 max-lg:text-2xl max-lg:mb-4 max-sm:text-xl">
                 {activeProject.name}
               </h2>
-              <p className="text-color_4 font-normal mb-14 max-lg:mb-4 max-lg:text-sm max-sm:text-xs">
-                {activeProject.description}
-              </p>
-              <div className="w-full flex gap-5 mb-4 max-mobile-xl:gap-2">
+              <div>
+                {descriptionParagraphs}
+              </div>
+              <div className="w-full flex gap-5 mb-4 mt-8 max-lg:mt-4 max-mobile-xl:gap-2">
                 {activeProject.stacks.map((stack, index) => (
                   <div key={index} className="border-1 border-color_6 rounded-full flex justify-center items-center animation_icon">
                     <img
@@ -241,13 +247,13 @@ export function Landing() {
               </div>
             </div>
             <Swiper
-              className="w-full max-w-xl max-lg:max-w-lg max-sm:max-w-md max-mobile-xl:max-w-sm"
+              className="w-full max-w-xl max-lg:max-w-lg max-lg:h-auto max-sm:max-w-md max-mobile-xl:max-w-sm"
               slidesPerView={1}
               onSwiper={(swiper) => (swiperRef.current = swiper)}
               onSlideChange={handleChange}
             >
               {projects.map((project, index) => (
-                <SwiperSlide key={index} className="relative w-full max-w-xl max-lg:max-w-lg max-sm:max-w-md max-mobile-xl:max-w-sm">
+                <SwiperSlide key={index} className="relative w-full max-w-xl max-lg:max-w-lg max-lg:h-auto max-sm:max-w-md max-mobile-xl:max-w-sm">
                   <img
                     className="w-full h-full object-cover rounded-md "
                     src={project.thumb}
@@ -315,7 +321,7 @@ export function Landing() {
       </section>
       <section className="section-5 w-full" id="contato">
         <div className="w-full flex justify-center py-20 px-10">
-          <div className="w-full flex flex-col gap-14 justify-center items-start max-w-5xl max-xl:max-w-3xl max-lg:max-w-2xl max-md:gap-10">
+          <div className="w-full flex flex-col gap-14 justify-center items-start max-w-6xl max-xl:max-w-3xl max-lg:max-w-2xl max-md:gap-10">
             <h1 className="text-4xl font-bold text-color_5 max-md:text-3xl max-sm:text-2xl max-mobile-xl:text-xl">ENTRE EM CONTATO COMIGO</h1>
             <div className="w-full flex gap-3">
               <input
