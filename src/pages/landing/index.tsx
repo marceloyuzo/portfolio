@@ -162,7 +162,7 @@ export function Landing() {
   }
 
   const descriptionParagraphs = activeProject.description.split('\n').map((paragraph, index) => (
-    <div key={index} className="text-color_4 text-justify text-sm font-normal indent-4 max-sm:text-xs">
+    <div key={index} className="text-color_4 text-justify text-sm font-medium indent-4 max-sm:text-xs">
       {paragraph}
     </div>
   ));
@@ -227,7 +227,7 @@ export function Landing() {
               <h2 className="text-4xl text-color_5 font-bold mb-8 max-lg:text-2xl max-lg:mb-4 max-sm:text-xl">
                 {activeProject.name}
               </h2>
-              <div>
+              <div className="min-h-36 max-lg:h-auto">
                 {descriptionParagraphs}
               </div>
               <div className="w-full flex gap-5 mb-4 mt-8 max-lg:mt-4 max-mobile-xl:gap-2">
