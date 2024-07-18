@@ -175,7 +175,8 @@ export function Landing() {
         <div className={`w-full max-w-3xl px-8 transition-opacity transform ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'} duration-1000 ease-in`}>
           <h1 className="text-7xl text-color_5 font-extrabold mb-5 text-shadow text-center max-sm:text-4xl max-mobile-xl:text-3xl max-mobile-sm:text-2xl">REACT DEVELOPER</h1>
 
-          <p className="text-color_4 text-justify indent-4 max-sm:text-sm max-mobile-sm:text-xs">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+          <p className="text-color_4 text-justify indent-4 max-sm:text-sm max-mobile-sm:text-xs">Meu nome é Marcelo Yuzo Itami, atualmente estou no 5º semestre de Ciência da Computação na Universidade Estadual de Maringá, apesar de não ser uma área muito estudada durante a graduação, tenho interesse na parte de desenvolvimento web, mais especificamente no frontend, mas futuramente pretendo me aventurar na parte do backend.</p>
+          <p className="text-color_4 text-justify indent-4 max-sm:text-sm max-mobile-sm:text-xs">No momento, estou estudando React e Next através de cursos, videos e fóruns, porém acredito que o melhor jeito de aprender é na prática, por isso estou procurando um estágio na área de desenvolvimento web para conseguir aplicar os conhecimentos estudados em uma aplicação real, além de também aprender com pessoas mais experientes sobre as melhores práticas e conhecimentos novos.</p>
         </div>
         <div className={`flex flex-col gap-2 text-color_7 max-xl:flex-row transition-opacity transform ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'} duration-1000 ease-in`}>
           <a href="https://www.linkedin.com/in/marcelo-yuzo-itami-0a79a2263/" target="_blank">
@@ -316,6 +317,7 @@ export function Landing() {
           <div className="w-full max-w-6xl grid grid-cols-2 gap-10 px-10 max-xl:grid-cols-1">
             <CardEducation yearStart="2022" yearEnd="2026" course="Ciência da Computação" institution="Universidade Estadual de Maringá" />
             <CardEducation yearStart="2024" yearEnd="2024" course="React Js com TypeScript do zero ao avançado na pratica" institution="Udemy" />
+            <CardEducation yearStart="2024" yearEnd="cursando" course="Formação React JS" institution="Rocketseat" />
           </div>
         </div>
       </section>
